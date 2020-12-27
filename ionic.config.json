@@ -1,0 +1,7 @@
+{
+  "name": "appBar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
