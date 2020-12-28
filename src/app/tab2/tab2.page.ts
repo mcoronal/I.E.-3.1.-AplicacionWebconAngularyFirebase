@@ -8,26 +8,49 @@ import { ServiceService } from '../services/service.service';
 })
 export class Tab2Page {
 
-  lista: any;
+  listaCasa: any = [];
+  listaClasicos: any = [];
+  listaEspeciales: any = [];
+  listaBebidas: any = [];
 
   constructor(private service: ServiceService) {}
 
   ngOnInit(): void {
+
+    this.getMontaditosdelaCasa();
+
+    this.getMontaditosClasicos();
+
+    this.getMontaditosEspeciales();
+
+    this.getBebidas();
+    
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     
   }
 
-  getMontaditosdelaCasa(){
+  async getMontaditosdelaCasa(){
 
-    this.service.getMontaditosdelaCasa().subscribe( response => {
+    this.listaCasa = await this.service.getMontaditosdelaCasa();
+    console.log(this.listaCasa)
+  }
 
-      this.lista = response;
-      console.log(response);
-    },
-    error => {
-      console.log(error);
-    }
-    )
+  async getMontaditosClasicos(){
+
+    this.listaClasicos = await this.service.getMontaditosClasicos();
+    console.log(this.listaClasicos)
+  }
+
+  async getMontaditosEspeciales(){
+
+    this.listaEspeciales = await this.service.getMontaditosEspeciales();
+    console.log(this.listaEspeciales)
+  }
+
+  async getBebidas(){
+
+    this.listaBebidas = await this.service.getBebidas();
+    console.log(this.listaBebidas)
   }
 }

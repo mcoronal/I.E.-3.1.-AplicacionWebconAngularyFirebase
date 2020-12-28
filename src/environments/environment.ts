@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-
-    firebaseConfig : { apiKey: "AIzaSyBJ8DmQyzTqhwGhAioRx-gD_Ur25HJuFzM",
+  firebaseConfig : {
+    apiKey: "AIzaSyBJ8DmQyzTqhwGhAioRx-gD_Ur25HJuFzM",
     authDomain: "comandabar-1fd11.firebaseapp.com",
     databaseURL: "https://comandabar-1fd11-default-rtdb.firebaseio.com",
     projectId: "comandabar-1fd11",
