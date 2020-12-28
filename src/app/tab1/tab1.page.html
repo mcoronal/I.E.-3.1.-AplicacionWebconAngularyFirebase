@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-    Nuestra Carta
+      Nuestra Carta
     </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -14,7 +14,7 @@
 <ion-content [fullscreen]="true">
 
   <ion-toolbar>
-    <ion-title>Nuestra Carta</ion-title>
+    <ion-title color="danger">Montaditos de la Casa</ion-title>
   </ion-toolbar>
 
   <div *ngFor="let item of listaCasa">
@@ -25,13 +25,71 @@
         <ion-card-subtitle>{{item.ingredientes}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
+        Precio: {{item.precio}} €
+      </ion-card-content>
+      <ion-card-content>
         Calidad: {{item.calidad}}
       </ion-card-content>
+    </ion-card>
+  </div>
 
+  <ion-toolbar>
+    <ion-title color="danger">Montaditos Clasicos</ion-title>
+  </ion-toolbar>
+
+  <div *ngFor="let item of listaClasicos">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{item.nombre}}</ion-card-title>
+        <img width="300" height="200" src={{item.foto}} />
+        <ion-card-subtitle>{{item.ingredientes}}</ion-card-subtitle>
+      </ion-card-header>
       <ion-card-content>
         Precio: {{item.precio}} €
       </ion-card-content>
+      <ion-card-content>
+        Calidad: {{item.calidad}}
+      </ion-card-content>
+    </ion-card>
+  </div>
 
+  <ion-toolbar>
+    <ion-title color="danger">Montaditos Especiales</ion-title>
+  </ion-toolbar>
+
+  <div *ngFor="let item of listaEspeciales">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{item.nombre}}</ion-card-title>
+        <img width="300" height="200" src={{item.foto}} />
+        <ion-card-subtitle>{{item.ingredientes}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Precio: {{item.precio}} €
+      </ion-card-content>
+      <ion-card-content>
+        Calidad: {{item.calidad}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-toolbar>
+    <ion-title color="danger">Bebidas</ion-title>
+  </ion-toolbar>
+
+  <div *ngFor="let item of listaBebidas">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{item.nombre}}</ion-card-title>
+        <img width="200" height="220" src={{item.foto}} />
+        <ion-card-subtitle>{{item.ingredientes}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Precio: {{item.precio}} €
+      </ion-card-content>
+      <ion-card-content>
+        Calidad: {{item.calidad}}
+      </ion-card-content>
     </ion-card>
   </div>
 
