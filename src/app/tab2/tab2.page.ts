@@ -12,6 +12,7 @@ export class Tab2Page {
   listaClasicos: any = [];
   listaEspeciales: any = [];
   listaBebidas: any = [];
+  listaPedidos =[];
 
   constructor(private service: ServiceService) {}
 
@@ -52,5 +53,13 @@ export class Tab2Page {
 
     this.listaBebidas = await this.service.getBebidas();
     console.log(this.listaBebidas)
+  }
+
+
+  _getSelectedItem(selectedItem){
+
+    this.listaPedidos.push(selectedItem)
+    console.log(selectedItem)
+    console.log(this.listaPedidos)
   }
 }
