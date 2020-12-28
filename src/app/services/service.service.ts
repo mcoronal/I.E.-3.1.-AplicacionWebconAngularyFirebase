@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -29,5 +28,5 @@ export class ServiceService {
     const endPoint="https://comandabar-1fd11-default-rtdb.firebaseio.com/Bebidas.json";
     return this.http.get(endPoint).toPromise<any>();
   ​​​ }​
-​​​
+​
   }

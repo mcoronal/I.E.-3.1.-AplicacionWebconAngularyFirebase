@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Navigation, NavigationExtras, Router } from '@angular/router';
 import { ServiceService } from '../services/service.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class Tab2Page {
   listaBebidas: any = [];
   listaPedidos =[];
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
 
@@ -58,8 +59,22 @@ export class Tab2Page {
 
   _getSelectedItem(selectedItem){
 
-    this.listaPedidos.push(selectedItem)
+
+    if(!selectedItem.isChecked){
+      
+      this.listaPedidos.push(selectedItem)
+    }
+    
     console.log(selectedItem)
     console.log(this.listaPedidos)
+  }
+  
+  _sendData(){
+    let nav : NavigationExtras = {
+      state: {pedido: this.listaPedidos}
+    }
+    this.router.navigate(['tabs/tab3'], nav);
+    this.listaPedidos=[];
+
   }
 }

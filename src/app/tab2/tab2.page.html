@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Tu Pedido
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -48,10 +48,10 @@
   <ion-list>
     <ion-item *ngFor="let item of listaBebidas">
       <ion-label>{{item.nombre}}</ion-label>
-      <ion-checkbox [(ngModel)]="item.isChecked" (click)="_getSelectedItem(item)"></ion-checkbox>
+      <ion-checkbox (click)="_getSelectedItem(item)"></ion-checkbox>
     </ion-item>
   </ion-list>
 
-  <ion-button expand="block">Enviar a Cuenta</ion-button>
+  <ion-button expand="block" (click)="_sendData()">Enviar a Cuenta</ion-button>
 
 </ion-content>

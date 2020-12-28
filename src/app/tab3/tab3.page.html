@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Tu Cuenta
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,8 +12,20 @@
     <ion-title>Su Pedido:</ion-title>
   </ion-toolbar>
 
+  <div *ngFor="let item of listaPedidos">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{item.nombre}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Precio: {{item.precio}} 
+      </ion-card-content>
+      
+      <ion-button (click)="borrar(item)"><ion-icon name="trash-outline"></ion-icon>Eliminar</ion-button>
+    </ion-card>
+  </div>
 
-
+<p>Su pedido es = {{pagoFinal}} €</p>
 
   <ion-button expand="block">Ordenar</ion-button>
 
