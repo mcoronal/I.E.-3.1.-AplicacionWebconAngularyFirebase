@@ -73,7 +73,20 @@ export class Tab2Page {
     let nav : NavigationExtras = {
       state: {pedido: this.listaPedidos}
     }
+
     this.router.navigate(['tabs/tab3'], nav);
+    this.listaCasa.map(item=>{
+      item.isChecked=false;
+    })
+    this.listaClasicos.map(item=>{
+      item.isChecked=false;
+    })
+    this.listaBebidas.map(item=>{
+      item.isChecked=false;
+    })
+    this.listaEspeciales.map(item=>{
+      item.isChecked=false;
+    })
     this.listaPedidos=[];
 
   }
