@@ -13,6 +13,8 @@ export class Tab3Page {
 
   constructor(private router:Router, private ar:ActivatedRoute, public alertController: AlertController) {
 
+    
+
     this.ar.queryParams.subscribe(() => {
       if(this.router.getCurrentNavigation().extras.state){
         this.listaPedidos = this.router.getCurrentNavigation().extras.state.pedido;
@@ -21,6 +23,11 @@ export class Tab3Page {
       }
     })
 
+  }
+
+  ngOnInit(): void {
+
+    
   }
 
   borrar(item){
@@ -41,14 +48,45 @@ export class Tab3Page {
 
   async _pedidoRealizado(){
 
-    const alert = await this.alertController.create({
+    if (this.listaPedidos.length<1){
+      const alert = await this.alertController.create({
+        message: 'El Pedido no puede estar vacio antes de ordenar.',
+      });
+  
+      await alert.present();
+    }
+    else{ const alert = await this.alertController.create({
       header: 'Su Pedido ha sido Realizado',
       message: 'Gracias por su visita.',
-    });
 
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'Ok',
+          handler: () => {
+            this.reinicio();
+           
+            
+          }
+          
+        }
+      ]
+      
+    });
+   
     await alert.present();
+    this.router.navigate(["tabs/tab1"]);
+    
+
+
     
     
+  }
+}
+
+  reinicio(){
+
+    window.location.reload();
   }
 
 }

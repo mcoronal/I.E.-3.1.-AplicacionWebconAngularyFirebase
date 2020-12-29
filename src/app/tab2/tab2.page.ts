@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Navigation, NavigationExtras, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { ServiceService } from '../services/service.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class Tab2Page {
   listaBebidas: any = [];
   listaPedidos =[];
 
-  constructor(private service: ServiceService, private router: Router) {}
+  constructor(private service: ServiceService, private router: Router, public alertController: AlertController) {}
 
   ngOnInit(): void {
 
@@ -69,8 +70,16 @@ export class Tab2Page {
     console.log(this.listaPedidos)
   }
   
-  _sendData(){
-    let nav : NavigationExtras = {
+  async _sendData(){
+
+    if (this.listaPedidos.length<1){
+      const alert = await this.alertController.create({
+        message: 'Por favor Seleccione un pedido.',
+      });
+  
+      await alert.present();
+    }
+    else{let nav : NavigationExtras = {
       state: {pedido: this.listaPedidos}
     }
 
@@ -88,6 +97,7 @@ export class Tab2Page {
       item.isChecked=false;
     })
     this.listaPedidos=[];
-
+}
+    
   }
 }
