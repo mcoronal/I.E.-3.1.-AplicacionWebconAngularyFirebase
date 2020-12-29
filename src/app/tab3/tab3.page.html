@@ -9,24 +9,49 @@
 <ion-content [fullscreen]="true">
 
   <ion-toolbar>
-    <ion-title>Su Pedido:</ion-title>
+    <ion-title color="danger">Su Pedido:</ion-title>
   </ion-toolbar>
 
   <div *ngFor="let item of listaPedidos">
     <ion-card>
       <ion-card-header>
         <ion-card-title>{{item.nombre}}</ion-card-title>
+        <img width="50" height="50" src={{item.foto}} />
       </ion-card-header>
       <ion-card-content>
-        Precio: {{item.precio}} 
+        Precio: {{item.precio}} €
       </ion-card-content>
-      
-      <ion-button (click)="borrar(item)"><ion-icon name="trash-outline"></ion-icon>Eliminar</ion-button>
+      <ion-row>
+        <ion-col size="6">
+        </ion-col>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="borrar(item)">
+            <ion-icon name="trash-outline"></ion-icon>Eliminar
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </ion-card>
   </div>
 
-<p>Su pedido es = {{pagoFinal}} €</p>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mesa Numero:</ion-label>
+      <ion-input placeholder="placeholder" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
 
-  <ion-button expand="block">Ordenar</ion-button>
+  <ion-card>
+    <ion-card-content>
+      <ion-title>Su pedido actual es = {{pagoFinal}} €</ion-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="_pedidoRealizado()">Ordenar Pedido</ion-button>
 
 </ion-content>

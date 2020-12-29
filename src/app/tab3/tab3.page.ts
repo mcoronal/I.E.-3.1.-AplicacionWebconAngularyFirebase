@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -10,7 +11,7 @@ export class Tab3Page {
 
   listaPedidos= [];
 
-  constructor(private router:Router, private ar:ActivatedRoute) {
+  constructor(private router:Router, private ar:ActivatedRoute, public alertController: AlertController) {
 
     this.ar.queryParams.subscribe(() => {
       if(this.router.getCurrentNavigation().extras.state){
@@ -36,6 +37,18 @@ export class Tab3Page {
     }
 
     console.log(this.pagoFinal)
+  }
+
+  async _pedidoRealizado(){
+
+    const alert = await this.alertController.create({
+      header: 'Su Pedido ha sido Realizado',
+      message: 'Gracias por su visita.',
+    });
+
+    await alert.present();
+    
+    
   }
 
 }

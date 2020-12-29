@@ -48,7 +48,7 @@
   <ion-list>
     <ion-item *ngFor="let item of listaBebidas">
       <ion-label>{{item.nombre}}</ion-label>
-      <ion-checkbox (click)="_getSelectedItem(item)"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="item.isChecked" (click)="_getSelectedItem(item)"></ion-checkbox>
     </ion-item>
   </ion-list>
 
